@@ -136,7 +136,7 @@ passport.deserializeUser(User.deserializeUser());
 // Middleware to make flash messages & user available in templates
 app.use((req, res, next) => {
   console.log(req.query);
-  res.locals.currentUser = req.user;
+  res.locals.currentUser = req.user || null;
   res.locals.success = req.flash('success');
   res.locals.error = req.flash('error');
   next();
